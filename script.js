@@ -403,12 +403,12 @@ function executeInstallSoftware(request){
 			if (request.ip.length > 0){
 
 				if (getSomeElement("a", "href", "?view=logout", 0) == null){
-					/* This code is slow.
+					
 					getSomeElement("input", "class", "browser-bar", 0).value = request.ip.pop(); //Fill IP Adress bar
 					setNextStep(request, "goToServerTab");
 					getSomeElement("input", "type", "submit", 0).click(); //Click on Go button
-					*/
-					goToPage( "/internet?ip=request.ip.pop()" );
+					
+			
 		 		} else {
 		 			setNextStep(request, "fillIPOnInternetPage");
 		 			getSomeElement("a", "href", "?view=logout", 0).click(); //Click on the Logout Button
@@ -421,7 +421,7 @@ function executeInstallSoftware(request){
 		if ((getSomeElement("div", "class", "alert alert-error", 0) == null) &&
 			(getSomeElement("a", "href", "?action=login", 0) != null)){
 				setNextStep(request, "signInKnownServer");
-		 		//getSomeElement("a", "href",	"?action=login", 0).click(); //Click on the server login tab
+		 		getSomeElement("a", "href",	"?action=login", 0).click(); //Click on the server login tab
 		 	} else {
 		 		if (request.ip.length >= 1){
 		 			if (request.ip.length == 0){
